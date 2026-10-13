@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>登录</title>
+    <style>
+        form {
+            width: 30%;
+            margin: 50px auto;
+            padding: 20px;
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #4CAF50;
+        }
+
+        span {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+            color: #444;
+        }
+
+        input[type="text"], input[type="password"], input[type="number"], select {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #56ffe0;
+            border-radius: 3px;
+            box-sizing: border-box;
+        }
+
+
+        input[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-left: 40%;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #45a049;
+
+        }
+    </style>
+</head>
+<body>
+<br/>
+<br/>
+<br/>
+<br/>
+
+<form method="post" action="/">
+    <center><h1>登录</h1></center>
+    <span>用户名</span><input type="text" name="username"><br>
+    <span>密码</span><input type="password" name="password"><br>
+    <br>
+    {% if error %}
+    <span style="color:red">{{error}}</span>
+    {% endif %}
+    <input type="submit" value="确定"><br><br><br>
+    还没有账号？&nbsp;&nbsp;&nbsp;<a type="button" href="/register" value="注册">注册</a>
+</form>
+
+</body>
+</html>

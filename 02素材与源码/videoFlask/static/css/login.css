@@ -1,0 +1,126 @@
+html,
+body {
+  height: 100%;
+}
+.bg-video {
+  background-size: cover;
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  object-fit: cover; /* 保持视频的宽高比 */
+}
+.rotating-plane {
+  display: none;
+  width: 80px;
+  height: 80px;
+  background: #fff;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  margin-left: -40px;
+  margin-top: -40px;
+  animation: rotating-plane 2s infinite;
+}
+.rotating-plane.active {
+  display: block;
+}
+.login {
+  width: 350px;
+  height: 300px;
+  background-color: rgba(255, 255, 255, 0.8); /* 半透明白色背景 */
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2); /* 阴影效果 */
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  padding: 20px;
+}
+.login.effect {
+  animation: login-small 0.8s linear;
+  animation-fill-mode: forwards;
+}
+.login h3 {
+  font-size: 24px;
+  margin-bottom: 50px;
+}
+.login .log-form li {
+  position: relative;
+  width: 100%;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+.login .log-form li input {
+  height: 30px;
+  border: 0px;
+  border-bottom: 1px solid #ccc;
+  flex-grow: 1;
+  padding-left: 10px;
+  outline: none;
+}
+.login .log-form li input:focus {
+  border: 1px solid dodgerblue;
+}
+.login .log-form li input:focus ~ label {
+  opacity: 1;
+  top: -5px;
+}
+.login .log-form li label {
+  position: absolute;
+  left: 50px;
+  top: 21px;
+  color: dodgerblue;
+  font-size: 14px;
+  opacity: 0;
+  background: #fff;
+  padding: 0 5px;
+  transition: 0.5s;
+}
+.login .log-form li i {
+  width: 20px;
+  height: 20px;
+  display: inline-block;
+  background: red;
+  margin-right: 18px;
+}
+.login .log-form li i.name {
+  background: url(../img/name.png) no-repeat;
+  background-size: 20px 20px;
+}
+.login .log-form li i.password {
+  background: url(../img/password.png) no-repeat;
+  background-size: 20px 20px;
+}
+.login .login-button {
+  cursor: pointer;
+  text-align: center;
+  height: 40px;
+  line-height: 40px;
+  background: dodgerblue;
+  color: #fff;
+  border-radius: 5px;
+  width: 360px;
+}
+@keyframes login-small {
+  0% {
+    transform: translate(-50%, -50%) scale(1);
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(0.2);
+  }
+}
+@keyframes rotating-plane {
+  0% {
+    transform: rotateX(0deg) rotateY(0);
+  }
+  50% {
+    transform: rotateX(-180deg) rotateY(0);
+  }
+  100% {
+    transform: rotateX(-180deg) rotateY(180deg);
+  }
+}

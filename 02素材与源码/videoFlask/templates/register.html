@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>虚假新闻检测系统</title>
+    <link rel="stylesheet" href="static/css/reset.css">
+    <link rel="stylesheet" href="static/css/login.css">
+    <!-- less scss -->
+    <style>
+
+        .login {
+            width: 350px;
+            height: 370px;
+            background-color: rgba(255, 255, 255, 0.8);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            padding: 20px;
+        }
+
+        .login .login-button {
+            cursor: pointer;
+            text-align: center;
+            height: 40px;
+            line-height: 40px;
+            background: dodgerblue;
+            color: #fff;
+            border-radius: 5px;
+            width: 310px;
+        }
+    </style>
+</head>
+<body id="particles-js">
+<div>
+    <video autoplay loop muted class="bg-video">
+        <source src="static/video/earth.mp4">
+    </video>
+</div>
+<div style="margin-top: 10%;margin-left:42%;position: absolute;">
+    <span style="font-size: 30px;color: white">虚假新闻检测系统</span><br><br><br>
+</div>
+<form method="post" action="/register">
+
+    <div class="login" id="login">
+
+        <h3>注册</h3>
+        <ul class="log-form">
+            <li>
+                <i class="name"></i>
+                <input type="text" placeholder="请输入用户名" onfocus="this.placeholder=''" name="username"
+                       onblur="this.placeholder='请输入用户名'" value="{{ username }}" required>
+                <label for="">用户名</label>
+            </li>
+            <li>
+                <i class="password"></i>
+                <input type="password" placeholder="请输入密码" onfocus="this.placeholder=''"
+                       onblur="this.placeholder='请输入密码'" name="password" value="{{ password }}" required>
+                <label for="">密码</label>
+            </li>
+            <li>
+                <i class="password"></i>
+                <input type="password" placeholder="请输入确认密码" onfocus="this.placeholder=''"
+                       onblur="this.placeholder='请输入确认密码'" name="confirmPassword" value="{{ confirmPassword }}"
+                       required>
+                <label for="">确认密码</label>
+            </li>
+            <br>
+            {% if error %}
+                <span style="color:red">{{ error }}</span>
+            {% endif %}
+
+        </ul>
+        <input class="login-button" type="submit" value="注册" style="border: none;"><br><br>
+        <a type="button" href="/" value="登录">去登录</a>
+    </div>
+
+</form>
+<div class="rotating-plane " id="shape"></div>
+<script src="static/js/particles.min.js"></script>
+<script src="static/js/app.js"></script>
+{#<script>
+    var login = document.getElementById('login');
+    var shape = document.getElementById('shape');
+    document.querySelector('.login-button').onclick = function () {
+        // 获取用户名和密码输入框的值
+        var usernameInput = document.querySelector('input[type="text"]');
+        var passwordInput = document.querySelector('input[type="password"]');
+        var username = usernameInput.value;
+        var password = passwordInput.value;
+
+        // 假设正确的用户名和密码
+        var correctUsername = 'root'; // 替换为实际的用户名
+        var correctPassword = '123456'; // 替换为实际的密码
+
+        // 检查用户名和密码是否匹配
+        if (username === correctUsername && password === correctPassword) {
+            // 登录成功
+            login.classList.add('effect');
+            setTimeout(function () {
+                login.style.display = 'none';
+                shape.classList.add('active');
+            }, 800);
+            // 页面跳转到'#'
+            // window.location.href = '#';
+            setTimeout(() => {
+                shape.classList.remove('active');
+                login.classList.remove('effect');
+                login.style.display = 'block';
+                alert('登录成功');
+            }, 2000);
+        } else {
+            // 登录失败
+            alert('用户名或密码不正确，请重新输入。');
+        }
+    };
+</script>#}
+</body>
+</html>
